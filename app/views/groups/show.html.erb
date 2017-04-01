@@ -21,15 +21,15 @@
       </tr>
     </thead>
     <tbody>
-      <% @posts.each do |post| %>
+      <% @posts.each do |a| %>
         <tr>
-          <td><%= post.content %></td>
-          <td><%= post.user.email %></td>
-          <td><%= post.created_at %></td>
+          <td><%= a.content %></td>
+          <td><%= a.user.email %></td>
+          <td><%= a.created_at %></td>
           <td>
-          <% if current_user && current_user==post.user %>
-            <%= link_to("Edit", edit_group_post_path(post), class: "btn btn-sm btn-default")%>
-            <%= link_to("Delete", group_post_path(post), class: "btn btn-sm btn-default" ,method: :delete, data:{ confirm: "Are you sure?"})%>
+          <% if current_user && current_user==a.user %>
+            <%= link_to("Edit", edit_group_post_path(a), class: "btn btn-sm btn-default")%>
+            <%= link_to("Delete", group_post_path(a), class: "btn btn-sm btn-default" ,method: :delete, data:{ confirm: "Are you sure?"})%>
             <% end  %>
             </td>
 
