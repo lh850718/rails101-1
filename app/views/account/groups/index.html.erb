@@ -1,0 +1,34 @@
+<div class="col-md-12">
+
+<h2 class="text-center">  all my groups</h2>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <td>#</td>
+        <td>Title</td>
+        <td>Description</td>
+        <td>Post Count</td>
+        <td>Last update</td>
+      </tr>
+    </thead>
+    <tbody>
+      <%  @groups.each do |group| %>
+        <tr>
+          <td> # </td>
+          <td><%= link_to(group.title, group_path(group)) %></td>
+          <td><%= group.description %></td>
+          <td><%= group.posts.count %></td>
+          <td><%= group.updated_at %></td>
+          <td>
+          <% if current_user && current_user==group.user %>
+            <%= link_to("Edit", edit_group_path(group), class: "btn btn-sm btn-default")%>
+            <%= link_to("Delete", group_path(group), class: "btn btn-sm btn-default" ,method: :delete, data:{ confirm: "Are you sure?"})%>
+            <% end  %>
+            </td>
+
+            </tr>
+            <% end %>
+            </tbody>
+            </table>
+            </div>
